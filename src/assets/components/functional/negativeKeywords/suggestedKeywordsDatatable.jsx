@@ -553,7 +553,7 @@ const SuggestedKeywordsDatatable = () => {
     },
 ];
 
-    const SuggestedKeywordsColumnSwiggy = [
+    const SuggestedKeywordsColumnFlipkart = [
         {
             field: "keyword",
             headerName: "SEARCH TERM",
@@ -645,7 +645,7 @@ const SuggestedKeywordsDatatable = () => {
 
     const columns = useMemo(() => {
         if (operator === "Blinkit") return SuggestedKeywordsColumnBlinkit;
-        if (operator === "Swiggy") return SuggestedKeywordsColumnSwiggy;
+        if (operator === "Flipkart") return SuggestedKeywordsColumnFlipkart;
 
         if (operator === "Zepto") return SuggestedKeywordsColumnZepto;
         return [];

@@ -180,100 +180,13 @@ const ProductsComponent = () => {
         { value: "aborted", label: "Aborted" }
     ];
 
-    const ProductsColumnBlinkit = [
-        {
-            field: "fsn_id",
-            headerName: "FSN ID",
-            minWidth: 200,
-        },
-        {
-            field: "product_name",
-            headerName: "PRODUCT",
-            renderCell: (params) => (
-                <a href={params.row.page_url} target="_blank"
-                    rel="noopener noreferrer">{params.row.product_name}</a>
-            ),
-            minWidth: 300,
-        },
-        {
-            field: "views",
-            headerName: "IMPRESSIONS",
-            minWidth: 150,
-            renderCell: (params) => (
-                <ColumnPercentageDataComponent mainValue={params.row.views} percentValue={params.row.views_diff} />
-            ), type: "number", align: "left",
-            headerAlign: "left",
-        },
-        {
-            field: "ad_spend",
-            headerName: "SPEND",
-            minWidth: 150,
-            renderCell: (params) => (
-                <ColumnPercentageDataComponent mainValue={params.row.ad_spend} percentValue={params.row.ad_spend_diff} />
-            ), type: "number", align: "left",
-            headerAlign: "left",
-        },
-        {
-            field: "cvr",
-            headerName: "CVR",
-            minWidth: 150,
-            renderCell: (params) => (
-                <ColumnPercentageDataComponent mainValue={params.row.cvr} percentValue={params.row.cvr_diff} />
-            ), type: "number", align: "left",
-            headerAlign: "left",
-        },
-        {
-            field: "direct_units_sold",
-            headerName: "DIRECT ORDERS",
-            minWidth: 150,
-            renderCell: (params) => (
-                <ColumnPercentageDataComponent mainValue={params.row.direct_units_sold} percentValue={params.row.direct_units_sold_diff} />
-            ), type: "number", align: "left",
-            headerAlign: "left",
-        },
-        {
-            field: "indirect_units_sold",
-            headerName: "INDIRECT ORDERS",
-            minWidth: 150,
-            renderCell: (params) => (
-                <ColumnPercentageDataComponent mainValue={params.row.indirect_units_sold} percentValue={params.row.indirect_units_sold_diff} />
-            ), type: "number", align: "left",
-            headerAlign: "left",
-        },
-        {
-            field: "direct_revenue",
-            headerName: "DIRECT REVENUE",
-            minWidth: 150,
-            renderCell: (params) => (
-                <ColumnPercentageDataComponent mainValue={params.row.direct_revenue} percentValue={params.row.direct_revenue_diff} />
-            ), type: "number", align: "left",
-            headerAlign: "left",
-        },
-        {
-            field: "indirect_revenue",
-            headerName: "INDIRECT REVENUE",
-            minWidth: 150,
-            renderCell: (params) => (
-                <ColumnPercentageDataComponent mainValue={params.row.indirect_revenue} percentValue={params.row.indirect_revenue_diff} />
-            ), type: "number", align: "left",
-            headerAlign: "left",
-        },
-        {
-            field: "roi_direct",
-            headerName: "DIRECT ROI",
-            minWidth: 150,
-            renderCell: (params) => (
-                <ColumnPercentageDataComponent mainValue={params.row.roi_direct} percentValue={params.row.roi_direct_diff} />
-            ), type: "number", align: "left",
-            headerAlign: "left",
-        },
-    ];
+   
 
     const ProductsColumnZepto = [
         {
             field: "product_name",
             headerName: "PRODUCT",
-            minWidth: 200
+            minWidth: 200,
         },
         {
             field: "campaign_name",
@@ -381,99 +294,177 @@ const ProductsComponent = () => {
         },
     ];
 
-    const ProductsColumnSwiggy = [
-        {
-            field: "product_name",
-            headerName: "PRODUCT",
-            minWidth: 200
-        },
-        {
-            field: "campaign_name",
-            headerName: "CAMPAIGN",
-            minWidth: 150,
-        },
-        {
-            field: "impressions",
-            headerName: "IMPRESSIONS",
-            minWidth: 150,
-            renderCell: (params) => (
-                <ColumnPercentageDataComponent mainValue={params.row.impressions} percentValue={params.row.impressions_change} />
-            ), type: "number", align: "left",
-            headerAlign: "left",
-        },
-        {
-            field: "spend",
-            headerName: "SPENDS",
-            minWidth: 150,
-            renderCell: (params) => (
-                <ColumnPercentageDataComponent mainValue={params.row.spend} percentValue={params.row.spend_change} />
-            ), type: "number", align: "left",
-            headerAlign: "left",
-        },
-        {
-            field: "sales",
-            headerName: "SALES",
-            minWidth: 150,
-            renderCell: (params) => (
-                <ColumnPercentageDataComponent mainValue={params.row.sales} percentValue={params.row.sales_change} />
-            ), type: "number", align: "left",
-            headerAlign: "left",
-        },
-        {
-            field: "ctr",
-            headerName: "CTR",
-            minWidth: 150,
-            renderCell: (params) => (
-                <NewPercentageDataComponent firstValue={params.row.ctr} secValue={params.row.ctr_change} />
-            ), type: "number", align: "left",
-            headerAlign: "left",
-        },
-        {
-            field: "ecpm",
-            headerName: "CPM",
-            minWidth: 150,
-            renderCell: (params) => (
-                <NewPercentageDataComponent firstValue={params.row.ecpm} secValue={params.row.ecpm_change} />
-            ), type: "number", align: "left",
-            headerAlign: "left",
-        },
-        {
-            field: "clicks",
-            headerName: "CLICKS",
-            minWidth: 150,
-            renderCell: (params) => (
-                <ColumnPercentageDataComponent mainValue={params.row.clicks} percentValue={params.row.clicks_change} />
-            ), type: "number", align: "left",
-            headerAlign: "left",
-        },
-        {
-            field: "a2c",
-            headerName: "ATC",
-            minWidth: 150,
-            renderCell: (params) => (
-                <ColumnPercentageDataComponent mainValue={params.row.a2c} percentValue={params.row.a2c_change} />
-            ), type: "number", align: "left",
-            headerAlign: "left",
-        },
-        {
-            field: "a2c_rate",
-            headerName: "ATC RATE",
-            minWidth: 150,
-            renderCell: (params) => (
-                <ColumnPercentageDataComponent mainValue={params.row.a2c_rate} percentValue={params.row.a2c_rate_change} />
-            ), type: "number", align: "left",
-            headerAlign: "left",
-        },
-        {
-            field: "roi",
-            headerName: "ROAS",
-            minWidth: 150,
-            renderCell: (params) => (
-                <ColumnPercentageDataComponent mainValue={params.row.roi} percentValue={params.row.roi_change} />
-            ), type: "number", align: "left",
-            headerAlign: "left",
-        },
-    ];
+
+
+     const ProductsColumnFlipkart = [
+  {
+    field: "fsn_id",
+    headerName: "FSN ID",
+    minWidth: 160,
+  },
+
+  {
+    field: "product_name",
+    headerName: "PRODUCT",
+    minWidth: 260,
+  },
+
+  {
+    field: "views",
+    headerName: "IMPRESSIONS",
+    minWidth: 150,
+    type: "number",
+    renderCell: (params) => (
+      <ColumnPercentageDataComponent
+        mainValue={params.row.views}
+        percentValue={params.row.views_diff}
+      />
+    ),
+  },
+
+  {
+    field: "clicks",
+    headerName: "CLICKS",
+    minWidth: 130,
+    type: "number",
+    renderCell: (params) => (
+      <ColumnPercentageDataComponent
+        mainValue={params.row.clicks}
+        percentValue={params.row.clicks_diff}
+      />
+    ),
+  },
+
+  {
+    field: "ad_spend",
+    headerName: "SPEND",
+    minWidth: 140,
+    type: "number",
+    renderCell: (params) => (
+      <ColumnPercentageDataComponent
+        mainValue={params.row.ad_spend}
+        percentValue={params.row.ad_spend_diff}
+      />
+    ),
+  },
+
+  {
+    field: "units_sold_direct",
+    headerName: "ORDERS (DIRECT)",
+    minWidth: 160,
+    type: "number",
+    renderCell: (params) => (
+      <ColumnPercentageDataComponent
+        mainValue={params.row.units_sold_direct}
+        percentValue={params.row.units_sold_direct_diff}
+      />
+    ),
+  },
+
+  {
+    field: "units_sold_indirect",
+    headerName: "ORDERS (INDIRECT)",
+    minWidth: 170,
+    type: "number",
+    renderCell: (params) => (
+      <ColumnPercentageDataComponent
+        mainValue={params.row.units_sold_indirect}
+        percentValue={params.row.units_sold_indirect_diff}
+      />
+    ),
+  },
+
+  {
+    field: "direct_revenue",
+    headerName: "SALES (DIRECT)",
+    minWidth: 170,
+    type: "number",
+    renderCell: (params) => (
+      <ColumnPercentageDataComponent
+        mainValue={params.row.direct_revenue}
+        percentValue={params.row.direct_revenue_diff}
+      />
+    ),
+  },
+
+  {
+    field: "indirect_revenue",
+    headerName: "SALES (INDIRECT)",
+    minWidth: 180,
+    type: "number",
+    renderCell: (params) => (
+      <ColumnPercentageDataComponent
+        mainValue={params.row.indirect_revenue}
+        percentValue={params.row.indirect_revenue_diff}
+      />
+    ),
+  },
+
+  {
+    field: "roi_direct",
+    headerName: "ROAS (DIRECT)",
+    minWidth: 150,
+    type: "number",
+    renderCell: (params) => (
+      <ColumnPercentageDataComponent
+        mainValue={params.row.roi_direct}
+        percentValue={params.row.roi_direct_diff}
+      />
+    ),
+  },
+
+  {
+    field: "roi_indirect",
+    headerName: "ROAS (INDIRECT)",
+    minWidth: 160,
+    type: "number",
+    renderCell: (params) => (
+      <ColumnPercentageDataComponent
+        mainValue={params.row.roi_indirect}
+        percentValue={params.row.roi_indirect_diff}
+      />
+    ),
+  },
+
+  {
+    field: "ctr",
+    headerName: "CTR",
+    minWidth: 120,
+    type: "number",
+    renderCell: (params) => (
+      <NewPercentageDataComponent
+        firstValue={params.row.ctr}
+        secValue={params.row.ctr_diff}
+      />
+    ),
+  },
+
+  {
+    field: "cvr",
+    headerName: "CVR",
+    minWidth: 120,
+    type: "number",
+    renderCell: (params) => (
+      <NewPercentageDataComponent
+        firstValue={params.row.cvr}
+        secValue={params.row.cvr_diff}
+      />
+    ),
+  },
+
+  {
+    field: "campaign_name",
+    headerName: "CAMPAIGN",
+    minWidth: 300,
+  },
+
+  {
+    field: "ad_group_name",
+    headerName: "AD GROUP",
+    minWidth: 200,
+  },
+];
+
 
     const getProductKey = (advertisedFsnId, adGroupId) => `${advertisedFsnId}_${adGroupId}`;
 
@@ -610,7 +601,7 @@ const ProductsComponent = () => {
         if (operator === "Amazon") return ProductsColumnAmazon;
         if (operator === "Zepto") return ProductsColumnZepto;
         if (operator === "Blinkit") return ProductsColumnBlinkit;
-        if (operator === "Swiggy") return ProductsColumnSwiggy;
+        if (operator === "Flipkart") return ProductsColumnFlipkart;
         return [];
     }, [operator, brands]);
 

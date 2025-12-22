@@ -260,10 +260,11 @@ const OverviewComponent = () => {
     },
 ];
 
-    const CategoryColumnsSwiggy = [
-        { field: "category", headerName: "CATEGORY", minWidth: 150 },
+
+    const CategoryColumnsFlipkart = [
+        { field: "Campaign_Tags", headerName: "CATEGORY", minWidth: 150 },
         {
-            field: "impressions_x",
+            field: "Impressions",
             headerName: "IMPRESSIONS",
             minWidth: 150,
             type: "number",
@@ -271,7 +272,7 @@ const OverviewComponent = () => {
             headerAlign: "left",
         },
         {
-            field: "clicks_x",
+            field: "Clicks",
             headerName: "CLICKS",
             minWidth: 150,
             type: "number", align: "left",
@@ -279,7 +280,7 @@ const OverviewComponent = () => {
         },
         
         {
-            field: "spends_x",
+            field: "Spend",
             headerName: "SPENDS",
             minWidth: 150,
             type: "number", align: "left",
@@ -287,7 +288,7 @@ const OverviewComponent = () => {
 
         },
         {
-            field: "sales_x",
+            field: "Sales",
             headerName: "SALES",
             minWidth: 150,
             type: "number", align: "left",
@@ -312,14 +313,14 @@ const OverviewComponent = () => {
             headerAlign: "left",
         },*/
          {
-            field: "cpm",
+            field: "CPM",
             headerName: "CPM",
             minWidth: 150,
             type: "number", align: "left",
             headerAlign: "left",
         },
         {
-            field: "roas",
+            field: "ROAS",
             headerName: "ROAS",
             minWidth: 150,
             type: "number", align: "left",
@@ -464,7 +465,7 @@ const OverviewComponent = () => {
     
             if (operator === "Zepto") return CategoryColumnsZepto;
             if (operator === "Blinkit") return CategoryColumnsBlinkit;
-             if (operator === "Swiggy") return CategoryColumnsSwiggy;
+             if (operator === "Flipkart") return CategoryColumnsFlipkart;
             return [];
         }, [operator, brands]);
 

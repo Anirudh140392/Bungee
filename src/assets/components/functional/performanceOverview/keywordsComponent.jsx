@@ -230,6 +230,12 @@ const KeywordsComponent = () => {
                             row.match_type === updatedKeywordType) {
                             return { ...row, bid: newBid };
                         }
+                         if (operator === "Flipkart" &&
+                            row.campaign_id === campaignId &&
+                            row.keyword_name === updatedKeyword &&
+                            row.match_type === updatedKeywordType) {
+                            return { ...row, cpm: newBid };
+                        }
                         return row;
                     }),
                 };
@@ -435,6 +441,169 @@ const KeywordsComponent = () => {
         },
     ];
 
+    const KeywordsColumnFlipkart = [
+  {
+    field: "keyword_name",
+    headerName: "TARGET",
+    minWidth: 200,
+    renderCell: (params) => (
+      <div
+        className="text-icon-div cursor-pointer"
+        onClick={() =>
+          handleKeywordClick(params.row.keyword_name, params.row.campaign_id)
+        }
+      >
+        <Typography className="redirect" variant="body2">
+          {params.row.keyword_name}
+        </Typography>
+      </div>
+    ),
+  },
+
+  {
+    field: "match_type",
+    headerName: "MATCH TYPE",
+    minWidth: 130,
+    headerAlign: "left",
+  },
+
+  {
+    field: "impressions",
+    headerName: "IMPRESSIONS",
+    minWidth: 150,
+    type: "number",
+    renderCell: (params) => (
+      <ColumnPercentageDataComponent
+        mainValue={params.row.impressions}
+        percentValue={params.row.impressions_change}
+      />
+    ),
+  },
+
+  {
+    field: "clicks",
+    headerName: "CLICKS",
+    minWidth: 130,
+    type: "number",
+    renderCell: (params) => (
+      <ColumnPercentageDataComponent
+        mainValue={params.row.clicks}
+        percentValue={params.row.clicks_change}
+      />
+    ),
+  },
+
+  {
+    field: "spend",
+    headerName: "SPENDS",
+    minWidth: 140,
+    type: "number",
+    renderCell: (params) => (
+      <ColumnPercentageDataComponent
+        mainValue={params.row.spend}
+        percentValue={params.row.spend_change}
+      />
+    ),
+  },
+
+  {
+    field: "orders",
+    headerName: "ORDERS",
+    minWidth: 130,
+    type: "number",
+    renderCell: (params) => (
+      <ColumnPercentageDataComponent
+        mainValue={params.row.orders}
+        percentValue={params.row.orders_change}
+      />
+    ),
+  },
+
+  {
+    field: "revenue",
+    headerName: "SALES",
+    minWidth: 140,
+    type: "number",
+    renderCell: (params) => (
+      <ColumnPercentageDataComponent
+        mainValue={params.row.revenue}
+        percentValue={params.row.revenue_change}
+      />
+    ),
+  },
+
+  {
+    field: "cpc",
+    headerName: "CPC",
+    minWidth: 120,
+    type: "number",
+    renderCell: (params) => (
+      <ColumnPercentageDataComponent
+        mainValue={params.row.cpc}
+        percentValue={params.row.cpc_change}
+      />
+    ),
+  },
+
+  {
+    field: "ctr",
+    headerName: "CTR",
+    minWidth: 120,
+    type: "number",
+    renderCell: (params) => (
+      <NewPercentageDataComponent
+        firstValue={params.row.ctr}
+        secValue={params.row.ctr_change}
+      />
+    ),
+  },
+
+  {
+    field: "cvr",
+    headerName: "CVR",
+    minWidth: 120,
+    type: "number",
+    renderCell: (params) => (
+      <NewPercentageDataComponent
+        firstValue={params.row.cvr}
+        secValue={params.row.cvr_change}
+      />
+    ),
+  },
+
+  {
+    field: "roas",
+    headerName: "ROAS",
+    minWidth: 120,
+    type: "number",
+    renderCell: (params) => (
+      <ColumnPercentageDataComponent
+        mainValue={params.row.roas}
+        percentValue={params.row.roas_change}
+      />
+    ),
+  },
+
+  {
+    field: "aov",
+    headerName: "AOV",
+    minWidth: 120,
+    type: "number",
+    renderCell: (params) => (
+      <ColumnPercentageDataComponent
+        mainValue={params.row.aov}
+        percentValue={params.row.aov_change}
+      />
+    ),
+  },
+
+  {
+    field: "campaign_name",
+    headerName: "CAMPAIGN",
+    minWidth: 300,
+  },
+];
+
     const KeywordsColumnZepto = [
         {
             field: "keyword_name",
@@ -637,6 +806,7 @@ const KeywordsComponent = () => {
     const columns = useMemo(() => {
         if (operator === "Blinkit") return KeywordsColumnBlinkit;
         if (operator === "Zepto") return KeywordsColumnZepto;
+         if (operator === "Flipkart") return KeywordsColumnFlipkart;
         return [];
     }, [operator, brands, updatingKeywords]);
 

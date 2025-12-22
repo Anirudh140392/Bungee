@@ -65,7 +65,7 @@ const HistoryDatatable = () => {
     ];
 
 
-     const HistoryColumnsSwiggy = [
+     const HistoryColumnsFlipkart = [
         { field: "date", headerName: "Date", minWidth: 150 },
         { field: "time", headerName: "Time", minWidth: 150 },
         { field: "module", headerName: "Module", minWidth: 150 },
@@ -145,7 +145,7 @@ const HistoryDatatable = () => {
      const selectedColumns = useMemo(() => {
         switch (operator) {
             case "Amazon": return HistoryColumnsAmazon;
-            case "Swiggy": return HistoryColumnsSwiggy;
+            case "Flipkart": return HistoryColumnsFlipkart;
             case "Blinkit": return HistoryColumnsBlinkit;
             
             default: return HistoryColumnsZepto;
